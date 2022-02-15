@@ -5,16 +5,16 @@ import java.util.Hashtable
 private val dogRepository: Hashtable<Int, Dog> = Hashtable()
 
 fun main() {
-    var option: String?
-    option = chooseOption()
+    var option: Int?
+    option = readOption()
 
     while (option != null) {
 
-        when(recognizeOption(option)) {
+        when(option) {
             1 -> createDog()
         }
 
-        option = chooseOption()
+        option = readOption()
     }
 }
 
@@ -23,14 +23,10 @@ fun createDog() {
     dogRepository[1] = Dog()
 }
 
-private fun recognizeOption(nextLine: String): Int {
-    val words: List<String> = nextLine.split(" ")
-    return words[0].toInt()
-}
-
-private fun chooseOption(): String? {
+private fun readOption(): Int? {
     printOptions()
-    return readLine()
+    val nextLine: String? = readLine()
+    return nextLine?.split(" ")?.get(0)?.toInt()
 }
 
 private fun printOptions() {
