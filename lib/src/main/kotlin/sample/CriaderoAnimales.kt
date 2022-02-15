@@ -36,5 +36,5 @@ private fun chooseOption(): String? {
 
 private fun printOptions() {
     println("Elija una opción:")
-    println("\t1. Dar de alta un perro")
+    println("\t1 - Dar de alta un perro")
 }
