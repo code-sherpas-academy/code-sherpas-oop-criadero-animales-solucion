@@ -1,27 +1,26 @@
 package sample
 
 import java.util.Hashtable
-import java.util.UUID
 
-private val dogRepository: Hashtable<UUID, Dog> = Hashtable()
+private val dogRepository: Hashtable<Int, Dog> = Hashtable()
 
 fun main() {
-    var nextLine: String?
-    nextLine = chooseOption()
+    var option: String?
+    option = chooseOption()
 
-    while (nextLine != null) {
+    while (option != null) {
 
-        when(recognizeOption(nextLine)) {
+        when(recognizeOption(option)) {
             1 -> createDog()
         }
 
-        nextLine = chooseOption()
+        option = chooseOption()
     }
 }
 
 fun createDog() {
     //val scanner = Scanner(System.`in`)
-    dogRepository[UUID.randomUUID()] = Dog()
+    dogRepository[1] = Dog()
 }
 
 private fun recognizeOption(nextLine: String): Int {
@@ -36,5 +35,5 @@ private fun chooseOption(): String? {
 
 private fun printOptions() {
     println("Elija una opción:")
-    println("\t1 - Dar de alta un perro")
+    println("\t1 - Crear un perro")
 }
