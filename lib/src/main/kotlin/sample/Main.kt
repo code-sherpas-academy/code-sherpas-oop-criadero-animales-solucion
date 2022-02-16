@@ -1,9 +1,5 @@
 package sample
 
-import java.util.Hashtable
-
-private val dogRepository: Hashtable<Int, Dog> = Hashtable()
-
 fun main() {
     var option: Int?
     option = readOption()
@@ -16,11 +12,6 @@ fun main() {
 
         option = readOption()
     }
-}
-
-fun createDog() {
-    //val scanner = Scanner(System.`in`)
-    dogRepository[1] = Dog()
 }
 
 private fun readOption(): Int? {
