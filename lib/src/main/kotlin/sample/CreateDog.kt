@@ -11,8 +11,8 @@ fun createDog() {
     val birthdate: String = fields.extractFieldAt(2)
     val fatherId: Int? = fields.extractNullableIntAt(3)
     val motherId: Int? = fields.extractNullableIntAt(4)
-    val father: Dog? = fatherId?.let { DogRepository.getOrNull(it) }
-    val mother: Dog? = motherId?.let { DogRepository.getOrNull(it) }
+    val father: Dog? = fatherId?.let { DogRepository.get(it) }
+    val mother: Dog? = motherId?.let { DogRepository.get(it) }
 
     Dog(
         id = IdGenerator.nextId(),
