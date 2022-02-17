@@ -1,9 +1,6 @@
 package sample
 
 fun createDog() {
-    println("Introduce los campos del perro. Por ejemplo:")
-    println("\tname=Teddy breed=Yorkshire birthdate=2020-03-05 father=23 mother=")
-
     val fields: List<String> = extractFields() ?: return
 
     val name: String = fields.extractFieldAt(0)
