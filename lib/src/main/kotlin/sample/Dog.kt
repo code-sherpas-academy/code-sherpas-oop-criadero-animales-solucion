@@ -6,5 +6,6 @@ class Dog(
     val breed: String,
     val birthdate: String,
     val father: Dog?,
-    val mother: Dog?
+    val mother: Dog?,
+    val tame: Boolean
 )

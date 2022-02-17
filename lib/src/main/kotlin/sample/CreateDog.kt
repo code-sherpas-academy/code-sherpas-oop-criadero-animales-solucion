@@ -5,7 +5,8 @@ data class CreateDogCommand(
     val breed: String,
     val birthdate: String,
     val fatherId: Int?,
-    val motherId: Int?
+    val motherId: Int?,
+    val tame: Boolean
 )
 
 fun createDog(createDogCommand: CreateDogCommand) {
@@ -19,7 +20,8 @@ fun createDog(createDogCommand: CreateDogCommand) {
             breed = breed,
             birthdate = birthdate,
             father = father,
-            mother = mother
+            mother = mother,
+            tame = tame
         ).let { dog -> DogRepository.create(dog) }
     }
 }
