@@ -17,6 +17,11 @@ fun main() {
                     println("Dog: id=${dog.id} name=${dog.name} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}")
                 }
             }
+            3 -> {
+                println("Por favor, introduce el identificador del perro:")
+                readLine()?.toInt()?.let { getDog(it) }
+                    ?.let { dog -> println("Dog: id=${dog.id} name=${dog.name} breed=${dog.breed} birthdate=${dog.birthdate} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}") }
+            }
         }
 
         option = readOption()
@@ -33,4 +38,5 @@ private fun printOptions() {
     println("Elija una opción:")
     println("\t1 - Crear un perro")
     println("\t2 - Ver todos los perros")
+    println("\t3 - Ver los datos de un perro")
 }
