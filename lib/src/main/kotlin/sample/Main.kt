@@ -10,14 +10,7 @@ fun main() {
             1 -> {
                 println("Introduce los campos del perro. Por ejemplo:")
                 println("\tname=Teddy breed=Yorkshire birthdate=2020-03-05 father=23 mother=")
-                val fields: List<String> = extractFields() ?: return
-
-                val name: String = fields.extractFieldAt(0)
-                val breed: String = fields.extractFieldAt(1)
-                val birthdate: String = fields.extractFieldAt(2)
-                val fatherId: Int? = fields.extractNullableIntAt(3)
-                val motherId: Int? = fields.extractNullableIntAt(4)
-                createDog(name = name, breed = breed, birthdate = birthdate, fatherId = fatherId, motherId = motherId)
+               buildCreateDogCommand()?.let { createDog(it) }
             }
             2 -> {
                 getDogs().forEach { dog: Dog ->
@@ -33,6 +26,18 @@ fun main() {
 
         option = readOption()
     }
+}
+
+private fun buildCreateDogCommand(): CreateDogCommand? {
+    val fields: List<String> = extractFields() ?: return null
+
+    val name: String = fields.extractFieldAt(0)
+    val breed: String = fields.extractFieldAt(1)
+    val birthdate: String = fields.extractFieldAt(2)
+    val fatherId: Int? = fields.extractNullableIntAt(3)
+    val motherId: Int? = fields.extractNullableIntAt(4)
+
+    return CreateDogCommand(name, breed, birthdate, fatherId, motherId)
 }
 
 private fun readOption(): Int? {
