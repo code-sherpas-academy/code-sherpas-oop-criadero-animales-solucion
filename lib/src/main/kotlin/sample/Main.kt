@@ -7,25 +7,31 @@ fun main() {
     while (option != null) {
 
         when (option) {
-            1 -> {
-                println("Introduce los campos del perro. Por ejemplo:")
-                println("\tname=Teddy breed=Yorkshire birthdate=2020-03-05 father=23 mother=")
-               buildCreateDogCommand()?.let { createDog(it) }
-            }
-            2 -> {
-                getDogs().forEach { dog: Dog ->
-                    println("Dog: id=${dog.id} name=${dog.name} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}")
-                }
-            }
-            3 -> {
-                println("Por favor, introduce el identificador del perro:")
-                readLine()?.toInt()?.let { getDog(it) }
-                    ?.let { dog -> println("Dog: id=${dog.id} name=${dog.name} breed=${dog.breed} birthdate=${dog.birthdate} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}") }
-            }
+            1 -> handleCreateDogOption()
+            2 -> handleGetDogsOption()
+            3 -> handleGetDogOption()
         }
 
         option = readOption()
     }
+}
+
+private fun handleGetDogOption() {
+    println("Por favor, introduce el identificador del perro:")
+    readLine()?.toInt()?.let { getDog(it) }
+        ?.let { dog -> println("Dog: id=${dog.id} name=${dog.name} breed=${dog.breed} birthdate=${dog.birthdate} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}") }
+}
+
+private fun handleGetDogsOption() {
+    getDogs().forEach { dog: Dog ->
+        println("Dog: id=${dog.id} name=${dog.name} father=${dog.father?.id ?: ""} mother=${dog.mother?.id ?: ""}")
+    }
+}
+
+private fun handleCreateDogOption() {
+    println("Introduce los campos del perro. Por ejemplo:")
+    println("\tname=Teddy breed=Yorkshire birthdate=2020-03-05 father=23 mother=")
+    buildCreateDogCommand()?.let { createDog(it) }
 }
 
 private fun buildCreateDogCommand(): CreateDogCommand? {
