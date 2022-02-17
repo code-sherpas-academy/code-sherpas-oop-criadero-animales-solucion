@@ -1,4 +1,7 @@
-package sample
+package sample.updatedog
+
+import sample.Dog
+import sample.DogRepository
 
 data class UpdateDogCommand(
     val id: Int,

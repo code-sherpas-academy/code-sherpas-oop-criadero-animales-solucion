@@ -1,4 +1,8 @@
-package sample
+package sample.createdog
+
+import sample.Dog
+import sample.DogRepository
+import sample.IdGenerator
 
 data class CreateDogCommand(
     val name: String,
