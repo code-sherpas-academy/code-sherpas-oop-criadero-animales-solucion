@@ -22,6 +22,6 @@ fun createDog(createDogCommand: CreateDogCommand) {
             father = father,
             mother = mother,
             tame = tame
-        ).let { dog -> DogRepository.create(dog) }
+        ).let { dog -> DogRepository.createOrUpdate(dog) }
     }
 }

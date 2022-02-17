@@ -10,10 +10,19 @@ fun main() {
             1 -> handleCreateDogOption()
             2 -> handleGetDogsOption()
             3 -> handleGetDogOption()
+            4 -> handleUpdateDogOption()
         }
 
         option = readOption()
     }
+}
+
+fun handleUpdateDogOption() {
+    println("Por favor, introduce el identificador del perro:")
+    val id: Int = readLine()?.toInt() ?: return
+    println("Por favor, introduce los nuevos datos del perro, Por ejemplo:")
+    println("\tname=Teddy breed=Yorkshire birthdate=2020-03-05 father=23 mother= tame=true")
+    buildUpdateDogCommand(id)?.let { updateDog(it) }
 }
 
 private fun handleGetDogOption() {
@@ -47,6 +56,19 @@ private fun buildCreateDogCommand(): CreateDogCommand? {
     return CreateDogCommand(name, breed, birthdate, fatherId, motherId, tame)
 }
 
+private fun buildUpdateDogCommand(id: Int): UpdateDogCommand? {
+    val fields: List<String> = extractFields() ?: return null
+
+    val name: String = fields.extractFieldAt(0)
+    val breed: String = fields.extractFieldAt(1)
+    val birthdate: String = fields.extractFieldAt(2)
+    val fatherId: Int? = fields.extractNullableIntAt(3)
+    val motherId: Int? = fields.extractNullableIntAt(4)
+    val tame: Boolean = fields.extractBooleanAt(5)
+
+    return UpdateDogCommand(id, name, breed, birthdate, fatherId, motherId, tame)
+}
+
 private fun readOption(): Int? {
     printOptions()
     val nextLine: String? = readLine()
@@ -58,6 +80,7 @@ private fun printOptions() {
     println("\t1 - Crear un perro")
     println("\t2 - Ver todos los perros")
     println("\t3 - Ver los datos de un perro")
+    println("\t4 - Modificar los datos de un perro")
 }
 
 private fun List<String>.extractNullableIntAt(position: Int): Int? = extractNullableFieldAt(position)?.toInt()
