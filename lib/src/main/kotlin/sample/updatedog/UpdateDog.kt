@@ -1,7 +1,7 @@
 package sample.updatedog
 
 import sample.Dog
-import sample.DogRepository
+import sample.AnimalRepository
 
 data class UpdateDogCommand(
     val id: Int,
@@ -15,10 +15,10 @@ data class UpdateDogCommand(
 
 fun updateDog(updateDogCommand: UpdateDogCommand) {
     with(updateDogCommand) {
-        val father: Dog? = fatherId?.let { DogRepository.get(it) }
-        val mother: Dog? = motherId?.let { DogRepository.get(it) }
+        val father: Dog? = fatherId?.let { AnimalRepository.get(it) as Dog }
+        val mother: Dog? = motherId?.let { AnimalRepository.get(it) as Dog }
 
-        val dogUpdated = DogRepository.get(id).update(
+        val dogUpdated = (AnimalRepository.get(id) as Dog).update(
             name = name,
             breed = breed,
             birthdate = birthdate,
@@ -27,6 +27,6 @@ fun updateDog(updateDogCommand: UpdateDogCommand) {
             tame = tame
         )
 
-        DogRepository.createOrUpdate(dogUpdated)
+        AnimalRepository.createOrUpdate(dogUpdated)
     }
 }

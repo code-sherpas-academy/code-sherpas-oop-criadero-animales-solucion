@@ -1,7 +1,7 @@
 package sample.createdog
 
 import sample.Dog
-import sample.DogRepository
+import sample.AnimalRepository
 import sample.IdGenerator
 
 data class CreateDogCommand(
@@ -15,8 +15,8 @@ data class CreateDogCommand(
 
 fun createDog(createDogCommand: CreateDogCommand) {
     with(createDogCommand) {
-        val father: Dog? = fatherId?.let { DogRepository.get(it) }
-        val mother: Dog? = motherId?.let { DogRepository.get(it) }
+        val father: Dog? = fatherId?.let { AnimalRepository.get(it) as Dog }
+        val mother: Dog? = motherId?.let { AnimalRepository.get(it) as Dog }
 
         Dog(
             id = IdGenerator.nextId(),
@@ -26,6 +26,6 @@ fun createDog(createDogCommand: CreateDogCommand) {
             father = father,
             mother = mother,
             tame = tame
-        ).let { dog -> DogRepository.createOrUpdate(dog) }
+        ).let { dog -> AnimalRepository.createOrUpdate(dog) }
     }
 }

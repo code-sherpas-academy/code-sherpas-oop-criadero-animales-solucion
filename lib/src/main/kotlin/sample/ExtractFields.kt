@@ -10,3 +10,4 @@ private fun List<String>.extractNullableFieldAt(position: Int): String? =
 fun extractFields(): List<String>? = readLine()?.split(" ")
 
 fun List<String>.extractBooleanAt(position: Int): Boolean = this.extractFieldAt(position).toBoolean()
+fun List<String>.extractIntAt(position: Int): Int = this.extractFieldAt(position).toInt()
