@@ -1,6 +1,6 @@
 package sample
 
-open class Animal(
+abstract class Animal(
     val id: Int,
     var name: String,
     var breed: String,
