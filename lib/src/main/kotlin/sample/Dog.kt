@@ -5,10 +5,16 @@ class Dog(
     name: String,
     breed: String,
     birthdate: String,
-    val father: Dog?,
-    val mother: Dog?,
-    val tame: Boolean
+    var father: Dog?,
+    var mother: Dog?,
+    var tame: Boolean
 ): Animal(id, name, breed, birthdate) {
-    fun update(name: String, breed: String, birthdate: String, father: Dog?, mother: Dog?, tame: Boolean): Dog =
-        Dog(id = id, name = name, breed = breed, birthdate = birthdate, father = father, mother = mother, tame = tame)
+    fun update(name: String, breed: String, birthdate: String, father: Dog?, mother: Dog?, tame: Boolean) {
+        this.name = name
+        this.breed = breed
+        this.birthdate = birthdate
+        this.father = father
+        this.mother = mother
+        this.tame = tame
+    }
 }

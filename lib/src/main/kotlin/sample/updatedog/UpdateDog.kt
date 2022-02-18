@@ -18,7 +18,8 @@ fun updateDog(updateDogCommand: UpdateDogCommand) {
         val father: Dog? = fatherId?.let { AnimalRepository.get(it) as Dog }
         val mother: Dog? = motherId?.let { AnimalRepository.get(it) as Dog }
 
-        val dogUpdated = (AnimalRepository.get(id) as Dog).update(
+        val dog = (AnimalRepository.get(id) as Dog)
+        dog.update(
             name = name,
             breed = breed,
             birthdate = birthdate,
@@ -27,6 +28,6 @@ fun updateDog(updateDogCommand: UpdateDogCommand) {
             tame = tame
         )
 
-        AnimalRepository.createOrUpdate(dogUpdated)
+        AnimalRepository.createOrUpdate(dog)
     }
 }
