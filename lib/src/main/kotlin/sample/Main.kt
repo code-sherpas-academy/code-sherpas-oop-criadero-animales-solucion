@@ -4,6 +4,7 @@ import sample.createcat.handleCreateCatOption
 import sample.createdog.handleCreateDogOption
 import sample.getanimal.handleGetAnimalOption
 import sample.getanimals.handleGetAnimalsOption
+import sample.updatecat.handleUpdateCatOption
 import sample.updatedog.handleUpdateDogOption
 
 fun main() {
@@ -18,6 +19,7 @@ fun main() {
             3 -> handleGetAnimalOption()
             4 -> handleUpdateDogOption()
             5 -> handleCreateCatOption()
+            6 -> handleUpdateCatOption()
         }
 
         option = readOption()
@@ -37,4 +39,5 @@ private fun printOptions() {
     println("\t3 - Ver los datos de un animal")
     println("\t4 - Modificar los datos de un perro")
     println("\t5 - Crear gato")
+    println("\t6 - Modificar los datos de un gato")
 }

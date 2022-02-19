@@ -29,3 +29,15 @@ name=Garfield breed=Siamese birthdate=2020-03-05 father= mother= sociable=3
 3
 0
 ```
+
+Update gato
+------------
+```
+5
+name=Garfield breed=Siamese birthdate=2020-03-05 father= mother= sociable=3
+6
+0
+name=Tom breed=Persian birthdate=2018-03-05 father= mother= sociable=5
+3
+0
+```
