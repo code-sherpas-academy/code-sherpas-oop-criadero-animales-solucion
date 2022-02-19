@@ -6,6 +6,8 @@ abstract class Animal(
     var breed: String,
     var birthdate: String
 ) {
+    var vaccinated: Boolean = false
+
     protected fun update(name: String, breed: String, birthdate: String) {
         this.name = name
         this.breed = breed
