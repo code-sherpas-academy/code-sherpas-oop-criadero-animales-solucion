@@ -10,9 +10,7 @@ class Dog(
     var tame: Boolean
 ): Animal(id, name, breed, birthdate) {
     fun update(name: String, breed: String, birthdate: String, father: Dog?, mother: Dog?, tame: Boolean) {
-        this.name = name
-        this.breed = breed
-        this.birthdate = birthdate
+        super.update(name = name, breed = breed, birthdate = birthdate)
         this.father = father
         this.mother = mother
         this.tame = tame
