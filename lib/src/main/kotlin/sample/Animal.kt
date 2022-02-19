@@ -6,7 +6,7 @@ abstract class Animal(
     var breed: String,
     var birthdate: String
 ) {
-    fun update(name: String, breed: String, birthdate: String) {
+    protected fun update(name: String, breed: String, birthdate: String) {
         this.name = name
         this.breed = breed
         this.birthdate = birthdate
