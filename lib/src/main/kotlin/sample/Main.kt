@@ -6,6 +6,7 @@ import sample.getanimal.handleGetAnimalOption
 import sample.getanimals.handleGetAnimalsOption
 import sample.updatecat.handleUpdateCatOption
 import sample.updatedog.handleUpdateDogOption
+import sample.vaccinateanimal.handleVaccinateAnimalOption
 
 fun main() {
     var option: Int?
@@ -20,6 +21,7 @@ fun main() {
             4 -> handleUpdateDogOption()
             5 -> handleCreateCatOption()
             6 -> handleUpdateCatOption()
+            7 -> handleVaccinateAnimalOption()
         }
 
         option = readOption()
@@ -40,4 +42,5 @@ private fun printOptions() {
     println("\t4 - Modificar los datos de un perro")
     println("\t5 - Crear gato")
     println("\t6 - Modificar los datos de un gato")
+    println("\t7 - Vacunar un animal")
 }

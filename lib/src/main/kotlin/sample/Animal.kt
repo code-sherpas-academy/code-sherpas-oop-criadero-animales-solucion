@@ -14,4 +14,8 @@ abstract class Animal(
         this.breed = breed
         this.birthdate = birthdate
     }
+
+    fun vaccinate() {
+        vaccinated = true
+    }
 }
