@@ -8,8 +8,8 @@ fun handleGetAnimalOption() {
     readLine()?.toInt()?.let { getAnimal(it) }
         ?.let { animal ->
             when (animal) {
-                is Dog -> println("Dog: id=${animal.id} name=${animal.name} breed=${animal.breed} birthdate=${animal.birthdate} father=${animal.father?.id ?: ""} mother=${animal.mother?.id ?: ""} tame=${animal.tame}")
-                is Cat -> println("Cat: id=${animal.id} name=${animal.name} breed=${animal.breed} birthdate=${animal.birthdate} father=${animal.father?.id ?: ""} mother=${animal.mother?.id ?: ""} sociable=${animal.sociable}")
+                is Dog -> println("Dog: id=${animal.id} name=${animal.name} breed=${animal.breed} birthdate=${animal.birthdate} father=${animal.father?.id ?: ""} mother=${animal.mother?.id ?: ""} tame=${animal.tame} vaccinated=${animal.vaccinated}")
+                is Cat -> println("Cat: id=${animal.id} name=${animal.name} breed=${animal.breed} birthdate=${animal.birthdate} father=${animal.father?.id ?: ""} mother=${animal.mother?.id ?: ""} sociable=${animal.sociable} vaccinated=${animal.vaccinated}")
             }
         }
 }
