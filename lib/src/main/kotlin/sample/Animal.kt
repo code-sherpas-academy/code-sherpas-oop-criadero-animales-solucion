@@ -7,7 +7,7 @@ abstract class Animal(
     var birthdate: String
 ) {
     var vaccinated: Boolean = false
-        private set
+        protected set
 
     protected fun update(name: String, breed: String, birthdate: String) {
         this.name = name
@@ -15,7 +15,5 @@ abstract class Animal(
         this.birthdate = birthdate
     }
 
-    fun vaccinate() {
-        vaccinated = true
-    }
+    abstract fun vaccinate()
 }
